@@ -7,10 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "$GITHUB_CONTEXT"
       - name: Check out repository code
         uses: actions/checkout@v3
       - run: make setup
       - run: make test
       - run: make lint
-      - run: echo "Имя текущего воркфлоу: $GITHUB_WORKFLOW"
-      - run: echo "Имя запущенной ОС: $RUNNER_OS"
